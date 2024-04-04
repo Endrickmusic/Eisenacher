@@ -10,12 +10,17 @@ export default function App() {
  return (
 
   
-    <Canvas shadows camera={{ position: [3, 3, 3], fov: 40 }}>
-      <Environment
-        files="./hdris/envmap.hdr" />
+    <Canvas 
+    shadows 
+    camera={{ position: [3, 3, 3], fov: 40 }}>
+      {/* <Environment
+        background
+        files="./hdris/envmap.hdr" 
+        backgroundIntensity={0.0}
+        /> */}
         <color 
           attach="background" 
-          args={["#aaefef"]} />
+          args={["#000000"]} />
       <Experience />
     </Canvas>
   
