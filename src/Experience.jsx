@@ -1,4 +1,4 @@
-import { OrbitControls, RoundedBox, useTexture } from "@react-three/drei"
+import { OrbitControls, RoundedBox, useTexture, Text3D } from "@react-three/drei"
 import { } from "@react-three/fiber"
 
 import Model from './Model.jsx'
@@ -10,7 +10,16 @@ export default function Experience(){
   return (
     <>
       <OrbitControls />       
-      {/* <Model / */}
+      <Text3D
+      castShadow
+      receiveShadow
+      font={'./fonts/inter.json'}
+      scale={0.5}
+      position={[-0.6, -1.1, -4]}
+      >
+        Hello
+        <meshStandardMaterial />
+      </Text3D>
       <Model_02 />
     </>
   )}

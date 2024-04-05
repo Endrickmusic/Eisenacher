@@ -1,27 +1,50 @@
 import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
-import { DoubleSide } from 'three'
+import { useFrame } from '@react-three/fiber'
+import { useGLTF, useHelper, OrbitControls } from '@react-three/drei'
+import { DoubleSide, PointLightHelper } from 'three'
 
 export default function Model(props) {
 
-  const dirLight = useRef()  
+  const pointLight1 = useRef() 
+  const pointLight2 = useRef() 
+
+  useHelper(pointLight2, PointLightHelper, 1, "red")
+   
   const { nodes } = useGLTF('./models/Rolltreppe_01.glb')
+  let time = 0
+
+  useFrame((state, delta)=>{
+    
+    time += delta
+    pointLight2.current.position.z = (Math.sin( time / 4.) * 4. ) + 2
+    pointLight2.current.rotation.y = Math.PI * 1.5
+  })
   
   return (
+
     <group {...props} dispose={null}>
-      <group position={[-3.098, 1.336, -0.662]} rotation={[0, 1.571, 0]}>
+      
+      <group 
+      position={[0, -1.8, -8]} 
+      rotation={[0, 0, 0]}>
 
-      <pointLight 
+      {/* <pointLight 
 
-    position={[0, 4, 0]}
-    intensity={35}
-    ref={dirLight}
+    position={[1, 8, 0]}
+    intensity={30}
+    ref={pointLight1}
+    /> */}
+    <ambientLight 
+    intensity={0.0}
     />
       <pointLight 
-
-    position={[1.5, 2, 14]}
-    intensity={35}
-    ref={dirLight}
+    // castShadow
+    // shadow-mapSize={[1024, 1024]}
+    position={[1.5, 1.5, 14]}
+    // rotation={[0, 1.8 * Math.PI , 0]}
+    scale={0.5}
+    intensity={5}
+    ref={pointLight2}
     />
 
         <mesh
@@ -59,6 +82,7 @@ export default function Model(props) {
         </mesh>
       </group>
     </group>
+
   )
 }
 
