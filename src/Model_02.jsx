@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF, useHelper, OrbitControls, ScrollControls, useScroll, Reflector, useTexture } from '@react-three/drei'
 import { DoubleSide, PointLightHelper } from 'three'
+import { KernelSize } from 'postprocessing'
+import { EffectComposer, Bloom } from '@react-three/postprocessing'
 
 export default function Model(props) {
 
@@ -105,7 +107,15 @@ export default function Model(props) {
 
         </ScrollControls>
       </group>
+
+      <EffectComposer multisampling={8}>
+      <Bloom kernelSize={3} luminanceThreshold={0} luminanceSmoothing={0.4} intensity={0.6} />
+      <Bloom kernelSize={KernelSize.HUGE} luminanceThreshold={0} luminanceSmoothing={0} intensity={0.5} />
+      </EffectComposer>
+
     </group>
+
+    
 
   )
 }

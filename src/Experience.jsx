@@ -1,4 +1,4 @@
-import { OrbitControls, RoundedBox, useTexture, Text3D, useScroll } from "@react-three/drei"
+import { OrbitControls, RoundedBox, useTexture, Text, useScroll } from "@react-three/drei"
 import { } from "@react-three/fiber"
 
 import Model from './Model.jsx'
@@ -23,20 +23,20 @@ const scroll = useScroll()
       dampingFactor={0.55} 
       target0={[0, 0, 0]}
       />         */}
-      <Text3D
-      castShadow
-      receiveShadow
-      font={'./fonts/inter.json'}
+      <Text
+      // castShadow
+      // receiveShadow
+      // font={'./fonts/BagossStandard-Regular-msdf.json'}
       scale={0.5}
-      position={[-0.6, -1.1, -4]}
+      position={[-1.4, -0.5, 0]}
+      rotation={[0, Math.PI / 2, 0]}
       >
-        Hello
-        <meshStandardMaterial 
-        metalness={1.0}
-        roughness={0.1}
+        Lorem Ipsum dolor sit amet, consectetuer
+        <meshBasicMaterial 
+        color={'#ffffff'}
         
         />
-      </Text3D>
+      </Text>
       <Model_02 />
     </>
   )}
