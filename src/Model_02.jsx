@@ -24,11 +24,11 @@ export default function Model(props) {
     pointLight2.current.position.z = (Math.sin( time / 4.) * 4. ) + 2
     pointLight2.current.rotation.y = Math.PI * 1.5
       
-      console.log(state.camera)
+      console.log(state.pointer)
     const offset = 1 - scroll.offset
     state.camera.position.set(0, -0.5, 5 + offset * -12. )
     state.camera.rotation.set(0, offset * 3., 0)
-
+    pointLight2.current.position.x = state.pointer.x * state.viewport.width * 0.45
 
   })
   
@@ -55,7 +55,7 @@ export default function Model(props) {
     position={[1.5, 1.5, 14]}
     // rotation={[0, 1.8 * Math.PI , 0]}
     scale={0.5}
-    intensity={25}
+    intensity={15}
     ref={pointLight2}
     />
     <ScrollControls 
