@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { useGLTF, useHelper, OrbitControls, ScrollControls, useScroll } from '@react-three/drei'
+import { useGLTF, useHelper, OrbitControls, ScrollControls, useScroll, Reflector, useTexture } from '@react-three/drei'
 import { DoubleSide, PointLightHelper } from 'three'
 
 export default function Model(props) {
@@ -93,6 +93,16 @@ export default function Model(props) {
         map={nodes.Mesh_0_2.material.map}
         />
         </mesh>
+
+        <Ground 
+        mirror={0.9} 
+        blur={[500, 100]} 
+        mixBlur={20} 
+        mixStrength={1.5} 
+        rotation={[-Math.PI / 2, 0, Math.PI / 2]} 
+        position={[0.4, 0.55, 6]} 
+        />
+
         </ScrollControls>
       </group>
     </group>
@@ -102,3 +112,12 @@ export default function Model(props) {
 
 useGLTF.preload('./models/Rolltreppe_01.glb')
 
+
+function Ground(props) {
+  const [floor, normal] = useTexture(['./textures/SurfaceImperfections003_1K_var1.jpg', './textures/SurfaceImperfections003_1K_Normal.jpg'])
+  return (
+    <Reflector resolution={1024} args={[10, 4]} {...props}>
+      {(Material, props) => <Material color="#999999" metalness={0} roughnessMap={floor} normalMap={normal} normalScale={[2, 2]} {...props} />}
+    </Reflector>
+  )
+}
