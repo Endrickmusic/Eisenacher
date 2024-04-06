@@ -12,7 +12,7 @@ export default function App() {
  
     <Canvas 
     shadows 
-    camera={{ position: [0, 0, 10], fov: 40 }}>
+    camera={{ position: [0, -1, 3], fov: 40 }}>
       {/* <Environment
         background
         files="./hdris/envmap.hdr" 

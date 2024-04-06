@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { useGLTF, useHelper, OrbitControls } from '@react-three/drei'
+import { useGLTF, useHelper, OrbitControls, ScrollControls } from '@react-three/drei'
 import { DoubleSide, PointLightHelper } from 'three'
 
 export default function Model(props) {
@@ -38,15 +38,18 @@ export default function Model(props) {
     intensity={0.0}
     />
       <pointLight 
-    // castShadow
+    // castShadown
     // shadow-mapSize={[1024, 1024]}
     position={[1.5, 1.5, 14]}
     // rotation={[0, 1.8 * Math.PI , 0]}
     scale={0.5}
-    intensity={5}
+    intensity={25}
     ref={pointLight2}
     />
-
+    <ScrollControls 
+    pages={3}
+    damping={0.25}
+    >
         <mesh
           castShadow
           receiveShadow
@@ -80,6 +83,7 @@ export default function Model(props) {
         map={nodes.Mesh_0_2.material.map}
         />
         </mesh>
+        </ScrollControls>
       </group>
     </group>
 

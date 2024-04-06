@@ -9,7 +9,18 @@ export default function Experience(){
 
   return (
     <>
-      <OrbitControls />       
+      <OrbitControls 
+      enablePan={false}
+      enableRotate={true}
+      enableZoom={false}
+      minAzimuthAngle={-Math.PI / 4}
+      maxAzimuthAngle={Math.PI / 4}
+      minPolarAngle={Math.PI / 2.5}
+      maxPolarAngle={Math.PI - Math.PI / 2.1}
+      dampingFactor={0.55}
+      target0={[0, 0, 4]}
+
+      />       
       <Text3D
       castShadow
       receiveShadow
@@ -18,7 +29,11 @@ export default function Experience(){
       position={[-0.6, -1.1, -4]}
       >
         Hello
-        <meshStandardMaterial />
+        <meshStandardMaterial 
+        metalness={1.0}
+        roughness={0.1}
+        
+        />
       </Text3D>
       <Model_02 />
     </>
