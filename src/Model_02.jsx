@@ -1,10 +1,13 @@
 import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { useGLTF, useHelper, OrbitControls, ScrollControls } from '@react-three/drei'
+import { useGLTF, useHelper, OrbitControls, ScrollControls, useScroll } from '@react-three/drei'
 import { DoubleSide, PointLightHelper } from 'three'
 
 export default function Model(props) {
 
+  const scroll = useScroll()
+
+  
   const pointLight1 = useRef() 
   const pointLight2 = useRef() 
 
@@ -18,6 +21,13 @@ export default function Model(props) {
     time += delta
     pointLight2.current.position.z = (Math.sin( time / 4.) * 4. ) + 2
     pointLight2.current.rotation.y = Math.PI * 1.5
+      
+      console.log(state.camera)
+    const offset = 1 - scroll.offset
+    state.camera.position.set(0, -0.5, 5 + offset * -12. )
+    state.camera.rotation.set(0, offset * 3., 0)
+
+
   })
   
   return (

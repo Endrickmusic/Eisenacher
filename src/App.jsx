@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import Logo from '/face-blowing-a-kiss.svg'
 import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment, OrbitControls, Scroll, ScrollControls, useScroll } from "@react-three/drei";
 import Experience from "./Experience";
 import './index.css'
 
 export default function App() {
+
+  const scroll = useScroll()
+  // console.log(scroll.offset)
 
  return (
 
@@ -21,7 +24,9 @@ export default function App() {
         <color 
           attach="background" 
           args={["#000000"]} />
+      <ScrollControls>
       <Experience />
+      </ScrollControls>
     </Canvas>
   
   );
