@@ -18,12 +18,12 @@ export const FadeIn = styled.div`
 
 export const Container = styled.div`
   font-family: 'Inter';
-  font-size: 16px;
+  font-size: 0.5vw;
   & h1 {
     padding: 0;
     margin: 0 0 0.05em 0;
     font-family: 'Ayer Poster', serif;
-    font-weight: 400;
+    font-weight: 200;
     font-size: min(18vw, 14em);
     line-height: 0.85em;
     color: #ffffff
@@ -34,7 +34,8 @@ export const TopLeft = styled.div`
   position: absolute;
   top: 5vw;
   left: 5vw;
-`
+  color: #ffffff;
+  `
 
 export const BottomLeft = styled.div`
   position: absolute;
@@ -42,6 +43,8 @@ export const BottomLeft = styled.div`
   left: 5vw;
   width: 30ch;
   max-width: 40%;
+  color: #ffffff;
+  font-size: 1.2vw;
 `
 
 export const BottomRight = styled.div`
@@ -53,6 +56,8 @@ export const BottomRight = styled.div`
   line-height: 1em;
   letter-spacing: -0.01em;
   text-align: right;
+  color: #ffffff;
+  font-size: 1.2vw;
 `
 
 export const Hamburger = styled.div`
@@ -65,9 +70,10 @@ export const Hamburger = styled.div`
     position: relative;
     width: 24px;
     height: 2px;
-    background: #252525;
+    background: #ffffff;
     margin-bottom: 6px;
   }
+
 `
 
 export const LeftMiddle = styled.div`
@@ -79,6 +85,7 @@ export const LeftMiddle = styled.div`
   line-height: 1em;
   letter-spacing: -0.01em;
   font-size: 12px;
+  color: #ffffff;
   transform: rotate(90deg) translate3d(50%, 0, 0);
   transform-origin: 100% 50%;
 `

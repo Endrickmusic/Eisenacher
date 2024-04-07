@@ -15,8 +15,9 @@ export default function App() {
 
  <>
     <Canvas 
+    orthographic
     shadows 
-    camera={{ position: [0, -1, 3], fov: 40 }}>
+    camera={{ position: [0, -1, 3], fov: 40, zoom: 250 }}>
       {/* <Environment
         background
         files="./hdris/envmap.hdr" 
