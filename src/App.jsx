@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, Scroll, ScrollControls, useScroll } from "@react-three/drei";
 import Experience from "./Experience";
 import './index.css'
+import Overlay from './Overlay.jsx'
 
 export default function App() {
 
@@ -12,7 +13,7 @@ export default function App() {
 
  return (
 
- 
+ <>
     <Canvas 
     shadows 
     camera={{ position: [0, -1, 3], fov: 40 }}>
@@ -28,7 +29,8 @@ export default function App() {
       <Experience />
       </ScrollControls>
     </Canvas>
-  
+      <Overlay />
+      </>
   );
 }
 

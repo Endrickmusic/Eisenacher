@@ -5,6 +5,7 @@ import Model from './Model.jsx'
 import Model_02 from './Model_02.jsx'
 
 
+
 export default function Experience(){
 
 const scroll = useScroll() 
@@ -33,10 +34,11 @@ const scroll = useScroll()
       >
         Lorem Ipsum dolor sit amet, consectetuer
         <meshBasicMaterial 
-        color={'#ffffff'}
+        color={'#ffff00'}
         
         />
       </Text>
       <Model_02 />
+
     </>
   )}

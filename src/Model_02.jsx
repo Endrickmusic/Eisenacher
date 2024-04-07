@@ -126,7 +126,7 @@ useGLTF.preload('./models/Rolltreppe_01.glb')
 function Ground(props) {
   const [floor, normal] = useTexture(['./textures/SurfaceImperfections003_1K_var1.jpg', './textures/SurfaceImperfections003_1K_Normal.jpg'])
   return (
-    <Reflector resolution={1024} args={[10, 4]} {...props}>
+    <Reflector resolution={1024} args={[10, 5]} {...props}>
       {(Material, props) => <Material color="#999999" metalness={0} roughnessMap={floor} normalMap={normal} normalScale={[2, 2]} {...props} />}
     </Reflector>
   )
