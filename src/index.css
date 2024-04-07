@@ -21,30 +21,24 @@ a {
 
 .dropDownMenu {
   position: absolute;
-  top: 2.5rem;
-  right: 2.5rem;
+  top: 2rem;
+  right: 5.5rem;
   width: 60px;
-  padding: 0px;
+  margin: 1px;
+  padding: 1px;
   border-radius: none;
   border-style: none;
   color: #ff22bb;
   font-size: 1vw;
   background-color: none;
   border: 1.5px solid #ff22bb;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically (optional) */
 }
-
-/* .dropDownMenu::before{
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  width: 25px;
-  height: 25px;
-  transform: rotate(45deg);
-  background-color: #ffffff;
-  border-left: 1px solid #ff22bb;
-  border-top: 1px solid #ff22bb;
-} */
 
 ul {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }

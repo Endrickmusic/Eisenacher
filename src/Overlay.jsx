@@ -41,13 +41,16 @@ export default function Overlay() {
         <br />
       </BottomRight>
       <Hamburger onClick={() => setOpenMenu((prev) => !prev)}>
-        { openMenu &&  <DropDownMenu />
-        }
+        
+        {/* <div style={{ display: openMenu ? 'none' : 'flex' }}/>
         <div style={{ display: openMenu ? 'none' : 'flex' }}/>
-        <div style={{ display: openMenu ? 'none' : 'flex' }}/>
-        <div style={{ display: openMenu ? 'none' : 'flex' }}/>
+        <div style={{ display: openMenu ? 'none' : 'flex' }}/> */}
+        <div />
+        <div />
+        <div />
       </Hamburger>
-     
+      { openMenu && <DropDownMenu />
+        }
 
     </Container>
   )
