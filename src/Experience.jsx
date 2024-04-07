@@ -1,5 +1,5 @@
-import { OrbitControls, RoundedBox, useTexture, Text, useScroll } from "@react-three/drei"
-import { } from "@react-three/fiber"
+import { OrbitControls, RoundedBox, useTexture, Text, useScroll, useEnvironment } from "@react-three/drei"
+import { useThree } from "@react-three/fiber"
 
 import Model from './Model.jsx'
 import Model_02 from './Model_02.jsx'
@@ -9,7 +9,9 @@ import Model_02 from './Model_02.jsx'
 export default function Experience(){
 
 const scroll = useScroll() 
-
+const envMap = useEnvironment({files:'./hdris/envmap.hdr'})
+const { scene } = useThree()
+scene.background = envMap
 
   return (
     <>

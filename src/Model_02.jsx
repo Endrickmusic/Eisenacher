@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF, useHelper, OrbitControls, ScrollControls, useScroll, Reflector, useTexture } from '@react-three/drei'
-import { DoubleSide, PointLightHelper } from 'three'
+import { DoubleSide, PointLightHelper, Vector2, Vector3 } from 'three'
 import { KernelSize } from 'postprocessing'
-import { EffectComposer, Bloom } from '@react-three/postprocessing'
+import { EffectComposer, Bloom, DepthOfField } from '@react-three/postprocessing'
 
 export default function Model(props) {
 
@@ -12,8 +12,9 @@ export default function Model(props) {
   
   const pointLight1 = useRef() 
   const pointLight2 = useRef() 
+  let dofTarget = new Vector3([0, 0, -2])
 
-  useHelper(pointLight2, PointLightHelper, 1, "red")
+  // useHelper(pointLight2, PointLightHelper, 1, "red")
    
   const { nodes } = useGLTF('./models/Rolltreppe_01.glb')
   let time = 0
@@ -22,14 +23,15 @@ export default function Model(props) {
     
     time += delta
     pointLight2.current.position.z = (Math.sin( time / 4.) * 4. ) + 4
-    pointLight2.current.rotation.y = Math.PI * 1.5
-      
-      console.log(state.pointer)
+
+    dofTarget = pointLight2.current.position
+
     const offset = 1 - scroll.offset
     state.camera.position.set(0, -0.5, 5 + offset * -12. )
     state.camera.rotation.set(0, offset * 3., 0)
     pointLight2.current.position.x = state.pointer.x * state.viewport.width * 0.45
 
+    // dof.current.target = pointLight2.current.position
   })
   
   return (
@@ -111,6 +113,7 @@ export default function Model(props) {
       <EffectComposer multisampling={8}>
       <Bloom kernelSize={3} luminanceThreshold={0} luminanceSmoothing={0.4} intensity={0.6} />
       <Bloom kernelSize={KernelSize.HUGE} luminanceThreshold={0} luminanceSmoothing={0} intensity={0.5} />
+      <DepthOfField target={[0, 0, -4]} focusRange={0.004} bokehScale={6} />
       </EffectComposer>
 
     </group>

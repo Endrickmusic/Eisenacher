@@ -1,6 +1,12 @@
-import { Container, TopLeft, BottomLeft, BottomRight, Hamburger } from './styles.js'
+import { Container, TopLeft, BottomLeft, BottomRight, Hamburger, LeftMiddle } from './styles.js'
+import { useState } from 'react'
+
+import DropDownMenu from './DropDownMenu.jsx'
 
 export default function Overlay() {
+
+  const [openMenu, setOpenMenu] = useState(false)
+
   return (
     <Container>
       <TopLeft>
@@ -8,11 +14,13 @@ export default function Overlay() {
           LANDING
           <br />
           PAGES —
-        </h1>
-        <p>In React & Threejs —</p>
+        </h1>       
       </TopLeft>
+      <LeftMiddle>
+      <p>In React & Threejs —</p>
+      </LeftMiddle>
       <BottomLeft>
-        A idea of  <a href="https://www.endrick.de"> Endrick</a>
+        An idea of  <a href="https://www.endrick.de"> Endrick</a>
       </BottomLeft>
       <BottomRight>
         Inspiration and ideas
@@ -32,11 +40,14 @@ export default function Overlay() {
         Performance and time to load
         <br />
       </BottomRight>
-      <Hamburger>
-        <div />
-        <div />
-        <div />
+      <Hamburger onClick={() => setOpenMenu((prev) => !prev)}>
+        { openMenu &&  <DropDownMenu />
+        }
+        <div style={{ display: openMenu ? 'none' : 'flex' }}/>
+        <div style={{ display: openMenu ? 'none' : 'flex' }}/>
+        <div style={{ display: openMenu ? 'none' : 'flex' }}/>
       </Hamburger>
+     
 
     </Container>
   )
