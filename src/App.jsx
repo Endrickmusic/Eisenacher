@@ -15,14 +15,19 @@ export default function App() {
 
  <>
     <Canvas 
-    orthographic
+    // orthographic
     shadows 
-    camera={{ position: [0, -1, 3], fov: 40, zoom: 250 }}>
-      {/* <Environment
+    camera={{ 
+      position: [0, -1, 3], 
+      fov: 40, 
+      // zoom: 250 
+      }}>
+      <Environment
         background
         files="./hdris/envmap.hdr" 
-        backgroundIntensity={0.0}
-        /> */}
+        backgroundIntensity={1.0}
+        environmentIntensity={0.0}
+        />
         <color 
           attach="background" 
           args={["#000000"]} />

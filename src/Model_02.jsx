@@ -21,7 +21,7 @@ export default function Model(props) {
   useFrame((state, delta)=>{
     
     time += delta
-    pointLight2.current.position.z = (Math.sin( time / 4.) * 4. ) + 2
+    pointLight2.current.position.z = (Math.sin( time / 4.) * 4. ) + 4
     pointLight2.current.rotation.y = Math.PI * 1.5
       
       console.log(state.pointer)
